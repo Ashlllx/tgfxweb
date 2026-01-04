@@ -1,0 +1,54 @@
+STAGE_IMAGE_BUILD_NOTIFY: &STAGE_IMAGE_BUILD_NOTIFY
+  name: 镜像构建成功通知
+  image: tencentcom/wecom-message
+  settings:
+    robot: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=87f15456-6d15-4f4e-b5b8-0306456b3c63
+    msgType: markdown
+    content: |
+      ##### **[${CNB_REPO_NAME}](https://git.woa.com/${CNB_REPO_SLUG}) 发布完成 🎉**
+
+      > <font color="comment">构建链接</font>：[#${CNB_BUILD_ID}](${CNB_BUILD_WEB_URL})
+      > <font color="comment">执行员工</font>：${CNB_BUILD_USER}
+      > <font color="comment">构建分支</font>：<font color="info">[$CNB_BRANCH](https://git.woa.com/${CNB_REPO_SLUG}/tree/${CNB_MERGE_REQUEST_BRANCH:-$CNB_BRANCH})</font>
+      > <font color="comment">提交编号</font>：[${CNB_COMMIT_SHORT}](https://git.woa.com/${CNB_REPO_SLUG}/commit/${CNB_COMMIT_SHORT})
+      > <font color="comment">提交内容</font>：\`${CNB_COMMIT_MESSAGE_TITLE}\`
+      > <font color="comment">镜像标签</font>：\`${DOCKER_TAG}\`
+      > <font color="comment">镜像地址</font>：\`${DOCKER_IMAGE}:${DOCKER_TAG}\`
+
+      版本已更新，点击查看 👉 <https://pag.io>
+
+
+master:
+  push:
+    - git:
+        enable: true
+        submodules: false
+      docker:
+        image: node:20
+      imports:
+        - https://cnb.woa.com/pag/secrets/-/blob/main/cos.env.yml
+      stages:
+        - name: 安装依赖 & 推送到 COS
+          script:
+            # - export
+            - cd website
+            - node -v
+            - yarn install
+            - yarn build
+            - wget https://github.com/tencentyun/coscli/releases/download/v1.0.6/coscli-v1.0.6-linux-amd64 -O coscli
+            - chmod +x coscli
+            - ./coscli config add --init-skip=true -b $COS_BUCKET -r $COS_REGION -e cos-internal.$COS_REGION.tencentcos.cn
+            - ./coscli config set --secret_id $COS_SECRET_ID --secret_key $COS_SECRET_KEY
+            # - ./coscli config show
+            - ./coscli cp ./build/pag.qq.com/ cos://$COS_BUCKET/ -r
+        - name: 刷新 CDN 缓存
+          image: tencentcom/tencentyun-cdn-purge:latest
+          settings:
+            secretId: $COS_SECRET_ID
+            secretKey: $COS_SECRET_KEY
+            urls:
+              - https://pag.qq.com/ # 刷新目录需要以 / 结尾
+              - https://pag.io/
+            flushType: flush # flush: 仅刷新更新的文件，delete: 刷新全部资源
+            endpoint: cdn.internal.tencentcloudapi.com # 内部 AKSK 调用需要使用内部域名
+        - *STAGE_IMAGE_BUILD_NOTIFY

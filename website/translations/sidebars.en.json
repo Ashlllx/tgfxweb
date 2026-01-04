@@ -1,0 +1,46 @@
+{
+    "docs": {
+      "Quick Access": ["home"],
+      "Get to know PAG": ["product-description", "pag-flow", "faq"],
+      "Quick Start": ["install", "install-PAGExporter", "pag-export", "sdk"],
+      "Export Plugin": [
+        "plugin-config",
+        "ae-error-guide",
+        "ae-bmp-guide",
+        "pag-fillmode",
+        "time-stretch",
+        "pag-hotkey",
+        "error-code",
+        "pag-export-verify",
+        "editable-text",
+        "text-background",
+        "pag-music-mark"
+      ],
+      "Preview Tool": ["pag-edit", "pag-file", "beta", "export-png", "watermark", "hot-key"],
+      "Mobile Advanced": [
+        "use-pagimageview",
+        "replace-video",
+        "play-audio",
+        "export-video",
+        "sdk-authorization"
+      ],
+      "Web Advanced": [
+        "use-web-sdk",
+        "web-load-pagfile",
+        "web-play-pagfile",
+        "web-features",
+        "web-compatibility",
+        "web-adaptive"
+      ],
+      "API Reference": ["apis-ios", "apis-android", "apis-web"],
+      "Video Tutorial": ["pag-training", "pag-training-2", "qa"],
+      "Resource Download": [
+        "pag-download",
+        "pag-test-material",
+        "pag-convert-download",
+        "pad-demo-download",
+        "pag-spec"
+      ],
+      "Others": ["animation-convert", "lottie-migration", "SDK-migration", "terms"]
+    }
+  }

@@ -1,0 +1,185 @@
+{
+  "productNav": {
+    "PAGCommunity": "PAG Community",
+    "PAGEnterprise": "PAG Enterprise",
+    "TAVMedia": "TAVMedia SDK",
+    "AnimateMaterial": "Animations"
+  },
+  "sectionDesc": {
+    "PAGCommunity": {
+      "title": "Community Edition",
+      "content": "The SDK is open-source and has an excellent support rate for AE features. Designers can use the free desktop tools provided by PAG to export their AE animations into PAG files with a simple click. These files can then be applied easily to most major platforms.",
+      "leftBtnText": "Learn more",
+      "rightBtnText": "Github"
+    },
+    "PAGEnterprise": {
+      "title": "Enterprise Edition",
+      "content": "The Enterprise edition offers advanced features for more complex scenarios, including advanced AE features, audio playback, and video replacement & exporting capabilities. We also offer expert technical support to assist with any usage problems.",
+      "leftBtnText": "Learn more",
+      "rightBtnText": "Contact Sales"
+    },
+    "TAVMedia": {
+      "title": "TAVMedia SDK",
+      "content": "TAVMedia is a complete video editing framework that works across platforms. It not only has built-in support for the PAG file format but also offers many advanced features like timeline management, multi-track editing, a customizable filter engine, and audio processing. While the PAG enterprise edition is focused on out-of-box features like video templates, TAVMedia is suitable for more complex and professional video editing needs.",
+      "leftBtnText": "Learn more",
+      "rightBtnText": "Contact Sales"
+    },
+    "AnimateMaterial": {
+      "title": "Animation Arts",
+      "content": "For different usage scenarios, the Motion Graphics Material Library contains a large number of high-quality materials with clear copyright, which can effectively help customers in advertising, gaming, education, e-commerce, finance, and entertainment fields achieve better promotional results.",
+      "leftBtnText": "Learn more",
+      "rightBtnText": "Contact Sales"
+    }
+  },
+  "card": {
+    "card1": {
+      "title": "Efficient File Format",
+      "content": "The extensible binary file format offers several benefits including the ability to compress files to a smaller size, the ability to merge images and audio into a single file, and superior compression ratio and decoding speed compared to similar solutions."
+    },
+    "card2": {
+      "title": "Comprehensive Toolchain",
+      "content": "The animation toolchain comes with an export plugin and preview tools to streamline the animation production process. With this, designers can easily export After Effects animations to PAG files, quickly identify rendering issues, and visually check performance. "
+    },
+    "card3": {
+      "title": "Editable at Runtime",
+      "content": "The animations in PAG can be dynamically modified and have their text or image placeholders replaced while applying preset motions. Additionally, any sub-layers can be added, edited, removed, or moved, making it highly flexible and practical."
+    },
+    "card4": {
+      "title": "Video Template",
+      "content": "The Enterprise edition has built-in capabilities such as video replacement, video exporting, and audio playback. With these features, you can easily implement video templates without having to worry about complex audio and video processing details."
+    },
+    "card5": {
+      "title": "Advanced AE Features",
+      "content": "Exclusive to the Enterprise Edition, our advanced AE features support a broader range of visual effects, enabling teams to create professional-grade motion designs that elevate product experience and boost user satisfaction."
+    },
+    "card6": {
+      "title": "Technical Support",
+      "content": "Our technical support services cover various usage problems, such as exporting or optimizing animation files, using the SDK, and addressing emergency issues online. We also offer comprehensive training and guidance on best practices."
+    },
+    "card7": {
+      "title": "High Performance",
+      "content": "TAVMedia is developed by the official PAG team, allowing it to utilize PAG's private APIs to minimize the overhead of the rendering chain. Additionally, it incorporates high-concurrency rendering techniques, resulting in excellent performance."
+    },
+    "card8": {
+      "title": "Flexible Combination",
+      "content": "TAVMedia allows you to easily combine photos, videos, stickers, and filters into one composition. Additionally, it comes with built-in serialization and deserialization capabilities that enable you to conveniently save the composition and restore it from the binary data. "
+    },
+    "card9": {
+      "title": "Scalable Filters",
+      "content": "The filter engine of TAVMedia provides a variety of pre-built filters, as well as the option to create your own custom filters for different scenarios. Additionally, it can accept PAG files as filters, which allows you access to countless effects created in AE."
+    },
+    "card10": {
+      "title": "Reliable Decoding",
+      "content": "TAVMedia supports both hardware and software decoding of videos.  It will automatically fall back to software decoding when hardware decoding is not available on the device. This guarantees that video decoding works consistently across platforms."
+    }
+  },
+  "materialType": {
+    "adTemplate": "Advertising template",
+    "liveEffect": "Live streaming Gift",
+    "videoEdit": "Video editing materials",
+    "videoAtom": "Video atomic materials"
+  },
+  "showcase": {
+    "mainTitle": [
+      "Camera Effects",
+      "Video Templates",
+      "Game Highlights",
+      "Video Editing",
+      "Advertisement",
+      "UI Animation",
+      "Live Streaming",
+      "Online Marketing"
+    ],
+    "subTitle": [
+      "Unleash your creativity in the camera with full AE features support.",
+      "Create stunning video templates with video replacement capabilities.",
+      "Magnify your game highlights with flexible runtime editing capabilities.",
+      "Enjoy the smooth editing experience with tons of animated sticker options.",
+      "Import product materials and immediately create video ads with one click.",
+      "Enhance your app experience with beautiful animations and small file sizes.",
+      "Ship impressive visual effects to your users during live stream tipping.",
+      "Easily create marketing videos online with server-side rendering capability."
+    ],
+    "marks": ["Photography Props", "Photography Template", "Game Report", "Video Editing", "Video Advertisement", "UI Animation", "Live Streaming Tipping", "Operational Activities"]
+  },
+  "showcaseTitle": {
+    "comparison": "PAG Editions",
+    "aeList": "AE Features"
+  },
+  "tableHeaderText": {
+    "supportedVersion": "Version",
+    "communityEdition": "Community",
+    "enterpriseEdition": "Enterprise",
+    "enterpriseEditionAdvanced": "Premium",
+    "enterpriseEditionCustom": "Customized",
+    "enterprise": "",
+    "subscription": "Enterprise",
+    "advanced": "Premium",
+    "editionCustom": "Customized",
+    "price": "Price"
+  },
+  "tableFooterText": "Contact Sales",
+  "free": "Free",
+  "downloadTip": "This file cannot be opened on mobile devices. Please download it on a computer.",
+  "downloadConfirm": "OK",
+  "mainTitles": ["Efficient File Format", "Full AE Features", "Comprehensive Tools", "Measurable Performance", "Editable At Runtime"],
+  "mainTexts": [
+    "PAG uses an extensible binary file format with high compression capabilities. This enables users to merge various resources into a single file while having a superior compression ratio and decoding speed compared to other similar solutions.",
+    "While other solutions may only support exporting limited vector-based AE features, PAG supports exporting all AE features even the third-party effects into a PAG file by combining vector-based exporting with raster-based exporting techniques.",
+    "PAG provides a comprehensive set of desktop tools, including an export plugin and preview tools. This allows designers to export After Effects animations in a WYSIWYG manner,  which can significantly reduce animation production costs.",
+    "PAGViewer provides a monitoring panel that can present visualized performance data for PAG files. With this feature, designers do not need the help of developers to create stunning animations that are also high in performance.",
+    "With the flexible editing APIs from PAG SDK, developers can easily change the layer structure of a single PAG file, mix multiple PAG files into one composition, or replace texts and images with all pre-designed animation effects applied at runtime."
+  ],
+  "introParagraph": {
+    "strongText": "is a complete animation workflow solution.",
+    "normalText": "Its goal is to reduce or eliminate the development cost of animation by allowing designers to easily export animated content created in Adobe After Effects into material files that can be quickly applied on almost all major platforms."
+  },
+  "usingTitle": "They are all using",
+  "usingContent": "Using PAG?",
+  "usingTellUs": "Tell us more!",
+  "viewMore": "View more",
+  "mobileAlert": {
+    "context": "This file cannot be opened on mobile devices,",
+    "download": "Please download it on a computer",
+    "confirm": "OK"
+  },
+  "buttonText": {
+    "learnMore": "Learn more",
+    "freeDownload": "Download",
+    "onlinePreview": "Preview"
+  },
+  "footerText": {
+    "address": "Address: Tencent Binhai Building, No. 33 Haitian Second Road, Nanshan District, Shenzhen, Guangdong Province, China.",
+    "phone": "TEL: 0755-86013388",
+    "qqGroup": "QQ Group: 893379574",
+    "recordNumber": "备案号：粤B2-20090059",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "faq": [
+    {
+      "issue": "How to install PAG?",
+      "link": "/docs/install.html"
+    },
+    {
+      "issue": "How to integrate the SDK for PAG?",
+      "link": "https://github.com/Tencent/libpag/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97"
+    },
+    {
+      "issue": "How to export PAG files?",
+      "link": "/docs/pag-export.html"
+    },
+    {
+      "issue": "What AE features does PAG support?",
+      "link": "/feature.html#ae"
+    }
+  ],
+  "customerService": {
+    "title": "Hello! :)",
+    "content": "This is the PAG team. If you have any questions, please feel free to let us know. We will do our best to help you. Before contacting us, you can check the FAQ below.",
+    "noSuitableAnswer": "No suitable answer?",
+    "goToDocs": "Please check our",
+    "documentation": "documentation",
+    "or": "or",
+    "contactUs": "contact us"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "docs": {
+    "了解 PAG": ["home","faq"],
+    "快速开始": ["install","install-PAGExporter","pag-export","sdk"],
+    "导出插件": ["plugin-config","ae-error-guide","ae-bmp-guide", "pag-fillmode", "time-stretch", "pag-hotkey","error-code", "pag-export-verify","editable-text", "text-background", "pag-music-mark", "manual-install-PAGExporter"],
+    "预览工具": ["pag-edit","pag-file","hot-key", "export-png","watermark","beta"],
+    "性能优化": ["profiler","optimization"],
+    "移动端进阶": ["api-instructions","use-pagimageview","replace-video","play-audio","export-video","sdk-authorization"],
+    "Web 进阶": ["use-web-sdk","web-load-pagfile","web-play-pagfile","web-features"],
+    "API 参考": ["apis-ios","apis-android", "apis-web"],
+    "视频教程": ["pag-flow","pag-training","pag-training-2","qa"],
+    "资源下载":["pag-download","pag-test-material","pad-demo-download", "pag-lvs","pag-convert-download","pag-spec"],
+    "其他": ["SDK-migration","terms"]
+  }
+}

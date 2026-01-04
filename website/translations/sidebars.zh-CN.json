@@ -1,0 +1,40 @@
+{
+    "docs": {
+      "快捷入口": ["home"],
+      "了解PAG": ["product-description", "pag-flow", "faq"],
+      "快速入门": ["install", "install-PAGExporter", "pag-export", "sdk"],
+      "导出插件": [
+        "plugin-config",
+        "ae-error-guide",
+        "ae-bmp-guide",
+        "pag-fillmode",
+        "time-stretch",
+        "pag-hotkey",
+        "error-code",
+        "pag-export-verify",
+        "editable-text",
+        "text-background",
+        "pag-music-mark"
+      ],
+      "预览工具": ["pag-edit", "pag-file", "beta", "export-png", "watermark", "hot-key"],
+      "移动端进阶": [
+        "use-pagimageview",
+        "replace-video",
+        "play-audio",
+        "export-video",
+        "sdk-authorization"
+      ],
+      "Web进阶": [
+        "use-web-sdk",
+        "web-load-pagfile",
+        "web-play-pagfile",
+        "web-features",
+        "web-compatibility",
+        "web-adaptive"
+      ],
+      "API参考": ["apis-ios", "apis-android", "apis-web"],
+      "视频教程": ["pag-training", "pag-training-2", "qa"],
+      "资源下载": ["pag-download", "pag-test-material", "pag-convert-download", "pad-demo-download", "pag-spec"],
+      "其他": ["animation-convert", "lottie-migration", "SDK-migration", "terms"]
+    }
+  }
