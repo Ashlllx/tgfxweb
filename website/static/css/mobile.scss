@@ -92,10 +92,10 @@ code {
         justify-content: space-between;
         header {
           > a:first-child {
-            background-image: url('https://pag.qq.com/img/new_official_website/logo_l.png');
+            background-image: url('/img/tgfximg/nav-logo.png');
             background-size: contain;
             background-repeat: no-repeat;
-            width: rem(32);
+            width: rem(100);
             height: rem(32);
             > img {
               display: none;
@@ -378,7 +378,7 @@ code {
         height: rem(24);
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url('https://pag.qq.com/img/new_official_website/github.png');
+        background-image: url('/img/tgfximg/github-icon.svg');
       }
       .qq-group-icon {
         display: inline-block;
@@ -476,7 +476,7 @@ code {
       background-size: contain;
     }
     .expand {
-      background-image: url('https://pag.qq.com/img/new_official_website/close.png');
+      background-image: url('/img/new_official_website/close.png');
     }
 
     .docsNavContainer {
@@ -937,7 +937,7 @@ code {
           position: fixed;
           background-size: calc(100vw), calc(100vw);
           background-repeat: no-repeat;
-          background-image: url('https://pag.qq.com/img/new_official_website/bgLogo.png');
+          background-image: url('/img/tgfximg/hero-bg.png');
           transition: all 2.4s cubic-bezier(0.645, 0.045, 0.355, 1);
           transform-origin: center;
           z-index: -1;
@@ -1025,7 +1025,7 @@ code {
       position: fixed;
       background-size: calc(100vw), calc(100vw);
       background-repeat: no-repeat;
-      background-image: url('https://pag.qq.com/img/new_official_website/bgLogo.png');
+      background-image: url('/img/tgfximg/hero-bg.png');
       transform-origin: center;
       z-index: -1;
     }
@@ -1138,7 +1138,7 @@ code {
             width: 100%;
             height: 100%;
             background-repeat: no-repeat;
-            background-image: url('https://pag.qq.com/img/commerce/banner_bg.png');
+            background-image: url('/img/tgfximg/hero-bg.png');
           }
         }
         .section {
@@ -1379,7 +1379,7 @@ code {
             width: 100%;
             height: 100%;
             background-repeat: no-repeat;
-            background-image: url('https://pag.qq.com/img/commerce/banner_bg.png');
+            background-image: url('/img/tgfximg/hero-bg.png');
           }
         }
         .feature-banner {
@@ -1396,7 +1396,7 @@ code {
             background-size: auto 100%;
             background-repeat: no-repeat;
             background-position: right rem(-146) center;
-            background-image: url('https://pag.qq.com/img/commerce/banner_bg.png');
+            background-image: url('/img/tgfximg/hero-bg.png');
           }
         }
         .feature-table {
@@ -1713,6 +1713,360 @@ code {
       }
     }
   }
+
+    // ==================== TGFX 首页组件移动端样式 ====================
+    
+    // 隐藏 PC 端专属样式
+    .tgfx-container {
+      min-width: auto !important;
+      padding-top: rem(48);
+    }
+
+    // Hero 区域 - 移动端适配
+    .tgfx-hero {
+      min-width: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: rem(500);
+      padding: rem(40) rem(24) rem(60);
+      flex-direction: column;
+      
+      // 隐藏三段式背景
+      &::before,
+      &::after {
+        display: none !important;
+      }
+      
+      .tgfx-hero-bg-center {
+        display: none !important;
+      }
+      
+      // 使用单一背景图
+      background: url('/img/tgfximg/hero-bg.png') no-repeat center center;
+      background-size: cover;
+    }
+    
+    .tgfx-hero-content {
+      width: 100% !important;
+      padding: 0 !important;
+      flex-direction: column-reverse;
+      gap: rem(40);
+    }
+    
+    .tgfx-hero-text {
+      flex: none !important;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .tgfx-hero-logo-text {
+      margin-bottom: rem(24);
+      
+      img {
+        height: rem(48) !important;
+      }
+    }
+    
+    .tgfx-hero-subtitle {
+      font-size: rem(14) !important;
+      line-height: rem(24) !important;
+      margin-bottom: rem(32);
+      text-align: left;
+    }
+    
+    .tgfx-hero-buttons {
+      justify-content: center;
+      gap: rem(16);
+      
+      .tgfx-btn {
+        width: rem(130);
+        height: rem(44);
+        font-size: rem(14);
+        border-radius: rem(22);
+      }
+    }
+    
+    .tgfx-hero-visual {
+      flex: none !important;
+      justify-content: center !important;
+      
+      .tgfx-hero-logo {
+        max-width: rem(200);
+        
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    // Features 区域 - 移动端适配
+    .tgfx-features {
+      min-width: auto !important;
+      padding: rem(40) rem(24) rem(60);
+      margin-top: 0 !important;
+    }
+    
+    .tgfx-features-header {
+      width: 100% !important;
+      margin: 0 0 rem(40) !important;
+      padding: 0 !important;
+    }
+    
+    .tgfx-features-tag {
+      width: rem(160);
+      height: rem(50);
+      font-size: rem(24);
+      border-radius: 0 0 0 rem(45);
+    }
+    
+    .tgfx-features-list {
+      width: 100% !important;
+    }
+    
+    .tgfx-feature-item {
+      flex-direction: column-reverse !important;
+      padding: 0 !important;
+      margin-bottom: rem(60) !important;
+      gap: rem(24) !important;
+    }
+    
+    .tgfx-feature-item.reverse {
+      flex-direction: column-reverse !important;
+    }
+    
+    .tgfx-feature-content {
+      flex: none !important;
+      max-width: 100% !important;
+      gap: rem(16);
+    }
+    
+    .tgfx-feature-index {
+      flex: 0 0 auto !important;
+      font-size: rem(80) !important;
+      line-height: 1;
+      margin-top: 0;
+    }
+    
+    .tgfx-feature-text {
+      flex: 1;
+    }
+    
+    .tgfx-feature-title {
+      font-size: rem(24) !important;
+      margin-bottom: rem(16) !important;
+    }
+    
+    .tgfx-feature-desc {
+      font-size: rem(14) !important;
+      line-height: rem(24) !important;
+      max-width: 100% !important;
+    }
+    
+    .tgfx-feature-image {
+      flex: none !important;
+      max-width: 100% !important;
+      
+      img {
+        width: 100%;
+        max-width: rem(280);
+        margin: 0 auto;
+        display: block;
+      }
+    }
+    
+    .tgfx-btn-small {
+      font-size: rem(14);
+      padding: rem(10) rem(20);
+      margin-top: rem(16);
+    }
+
+    // Users 区域 - 移动端适配
+    .tgfx-users {
+      min-width: auto !important;
+      padding: rem(40) rem(24);
+    }
+    
+    .tgfx-users-header {
+      width: 100% !important;
+      margin: 0 0 rem(16) !important;
+      padding: 0 !important;
+    }
+    
+    .tgfx-users-tag {
+      font-size: rem(14);
+      padding: rem(8) rem(20);
+    }
+    
+    .tgfx-users-title {
+      font-size: rem(24) !important;
+      margin: rem(32) 0 rem(32) !important;
+      width: 100% !important;
+    }
+    
+    .tgfx-users-grid {
+      width: 100% !important;
+      padding: 0 !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: rem(16) !important;
+    }
+    
+    .tgfx-user-logo {
+      width: rem(70) !important;
+      height: rem(70) !important;
+      border-radius: rem(14) !important;
+      margin-bottom: rem(10) !important;
+    }
+    
+    .tgfx-user-name {
+      font-size: rem(12) !important;
+    }
+    
+    .tgfx-btn-more {
+      font-size: rem(12);
+      padding: rem(10) rem(20);
+      margin-top: rem(32);
+    }
+
+    // Download 区域 - 移动端适配
+    .tgfx-download {
+      min-width: auto !important;
+      min-height: auto !important;
+      padding: rem(60) rem(24) rem(40);
+    }
+    
+    .tgfx-download-content {
+      width: 100% !important;
+      padding: 0 !important;
+    }
+    
+    .tgfx-download-box {
+      width: rem(200) !important;
+      height: rem(180) !important;
+      margin-bottom: rem(32) !important;
+      
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    
+    .tgfx-download-title {
+      font-size: rem(24) !important;
+      margin-bottom: rem(24) !important;
+    }
+    
+    .tgfx-download-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: rem(12);
+      
+      .tgfx-btn-download-dark {
+        width: rem(200) !important;
+        height: rem(48) !important;
+        font-size: rem(14) !important;
+        padding: rem(12) rem(24) !important;
+        border-radius: rem(24) !important;
+      }
+    }
+
+    // ==================== TGFX 案例页移动端样式 ====================
+    
+    .tgfx-showcase {
+      min-width: auto !important;
+      padding: rem(40) rem(24) rem(60);
+    }
+    
+    .tgfx-showcase-title {
+      font-size: rem(24) !important;
+      margin-bottom: rem(32) !important;
+    }
+    
+    .tgfx-showcase-grid {
+      width: 100% !important;
+      padding: 0 !important;
+      grid-template-columns: 1fr !important;
+      gap: rem(24) !important;
+    }
+    
+    .tgfx-showcase-item {
+      width: 100% !important;
+      min-height: auto !important;
+    }
+    
+    // 腾讯地图特殊宽度重置
+    .tgfx-showcase-item:nth-child(4) {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+    
+    .tgfx-showcase-image {
+      height: rem(180) !important;
+    }
+    
+    .tgfx-showcase-item:nth-child(4) .tgfx-showcase-image {
+      height: rem(180) !important;
+    }
+    
+    .tgfx-showcase-content {
+      height: auto !important;
+      min-height: rem(120);
+      padding: rem(16) rem(20) !important;
+    }
+    
+    .tgfx-showcase-item:nth-child(4) .tgfx-showcase-content {
+      width: 100% !important;
+    }
+    
+    .tgfx-showcase-name {
+      font-size: rem(18) !important;
+      line-height: rem(26) !important;
+      height: auto !important;
+      margin-bottom: rem(8) !important;
+    }
+    
+    .tgfx-showcase-desc {
+      font-size: rem(14) !important;
+      line-height: rem(22) !important;
+      height: auto !important;
+      max-width: 100% !important;
+      -webkit-line-clamp: 4 !important;
+    }
+
+    // ==================== TGFX Footer 移动端适配 ====================
+    
+    .tgfx-footer {
+      min-width: auto !important;
+      padding: rem(32) rem(24) !important;
+    }
+    
+    .tgfx-footer-content {
+      width: 100% !important;
+      padding: 0 !important;
+    }
+    
+    .tgfx-footer-info {
+      margin-bottom: rem(24);
+      
+      span {
+        font-size: rem(12) !important;
+        line-height: rem(20) !important;
+      }
+    }
+    
+    .tgfx-footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(16);
+      padding-top: rem(16);
+    }
+    
+    .tgfx-footer-copyright {
+      font-size: rem(12) !important;
+    }
+    
+    .tgfx-footer-links a {
+      font-size: rem(12) !important;
+    }
 
   html[lang='en'] {
     body {
