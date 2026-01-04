@@ -1,9 +1,9 @@
-/* TGFX 网站样式 - 基于 Figma 设计稿 */
+/* TGFX website styles - based on Figma design */
 
-/* ==================== 引入 Google Fonts ==================== */
+/* ==================== Import Google Fonts ==================== */
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500;600&display=swap');
 
-/* ==================== 变量定义 ==================== */
+/* ==================== Variable definitions ==================== */
 :root {
   --tgfx-primary: #0066FF;
   --tgfx-primary-light: #3385FF;
@@ -18,8 +18,8 @@
   --tgfx-content-width: 1320px;
 }
 
-/* ==================== 文档页面样式修复 ==================== */
-/* 移除所有页面导航栏下方的灰色横线 */
+/* ==================== Docs page style fixes ==================== */
+/* Remove gray line below navbar on all pages */
 body .navPusher .mainContainer .wrapper .post .postHeader:before {
   height: 0px !important;
   margin-top: 0px !important;
@@ -38,7 +38,7 @@ body .navPusher .mainContainer .wrapper .post .postHeader:before {
   display: none !important;
 }
 
-/* 移除文档标题下方的横线 */
+/* Remove line below docs title */
 body .navPusher .mainContainer .wrapper .post article hr:first-of-type {
   display: none !important;
 }
@@ -47,7 +47,7 @@ body .navPusher .mainContainer .wrapper .post article hr:first-of-type {
   display: none !important;
 }
 
-/* 移除首页导航栏下方的横线 */
+/* Remove line below homepage navbar */
 body .homePageNavPusher.navPusher .docMainWrapper .mainContainer .wrapper .post .postHeader {
   margin-bottom: 0px !important;
   border-bottom: none !important;
@@ -62,7 +62,7 @@ body .homePageNavPusher.navPusher .docMainWrapper .mainContainer .wrapper .post 
   border: none !important;
 }
 
-/* 修复文档内容被遮挡的问题 */
+/* Fix docs content being obscured */
 .docsContainer .wrapper .post {
   padding-top: 80px !important;
 }
@@ -71,13 +71,13 @@ body .homePageNavPusher.navPusher .docMainWrapper .mainContainer .wrapper .post 
   padding-top: 0 !important;
 }
 
-/* 确保标题容器不被遮挡 */
+/* Ensure title container is not obscured */
 .titleContainer {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* ==================== 文档页面样式（复制自 PAG） ==================== */
+/* ==================== Docs page styles (from PAG) ==================== */
 body .homePageNavPusher.navPusher .docMainWrapper {
   background: #ffffff;
 }
@@ -243,12 +243,12 @@ body .homePageNavPusher.navPusher .toc section .navGroups {
   padding-top: 0;
 }
 
-/* ==================== 全局滚动修复与缩放锁定 ==================== */
+/* ==================== Global scroll fix and zoom lock ==================== */
 html, body {
   height: auto !important;
-  overflow-x: auto !important; /* 允许出现横向滚动条以查看超出的部分 */
+  overflow-x: auto !important; /* Allow horizontal scrollbar for overflow */
   overflow-y: auto !important;
-  min-width: 1440px; /* 锁定最小宽度为1440px（中切片缩至最小时的尺寸） */
+  min-width: 1440px; /* Lock min width to 1440px */
 }
 
 .navPusher {
@@ -256,7 +256,7 @@ html, body {
   min-width: 1440px;
 }
 
-/* 当窗口小于1440px时，页面固定为1440px，出现横向滚动条 */
+/* When window is less than 1440px, page fixed at 1440px with horizontal scrollbar */
 @media (max-width: 1440px) {
   body {
     width: 1440px !important;
@@ -264,27 +264,27 @@ html, body {
   }
 }
 
-/* ==================== 导航栏样式 - 参考 PAG 实现响应式布局 ==================== */
-/* 设计稿布局 (1440px):
-   - 导航栏: 1440x80px, 背景 rgba(255,255,255,0.9), blur(20px)
+/* ==================== Navbar styles - responsive layout based on PAG ==================== */
+/* Design layout (1440px):
+   - Navbar: 1440x80px, background rgba(255,255,255,0.9), blur(20px)
    - Logo: 150.22x44px, left: 60px
-   - 导航项(首页/文档/API参考/案例): 居中显示, gap: 35px
-   - 右侧按钮: 语言切换、GitHub、论坛交流 - 使用 fixed 定位
+   - Nav items (Home/Docs/API/Showcase): centered, gap: 35px
+   - Right buttons: Language switch, GitHub, Forum - fixed position
 */
 
-/* 导航栏容器 */
+/* Navbar container */
 body .fixedHeaderContainer {
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100% !important;
   height: 80px !important;
-  min-width: 1440px !important; /* 锁定最小宽度 */
+  min-width: 1440px !important; /* Lock min width */
   backdrop-filter: saturate(180%) blur(20px);
   background-color: rgba(255, 255, 255, 0.8) !important;
   z-index: 1000;
   padding: 0 !important;
-  box-shadow: none !important; /* 移除底边阴影 */
+  box-shadow: none !important; /* Remove bottom shadow */
 }
 
 body .fixedHeaderContainer .wrapper {
@@ -312,25 +312,25 @@ body .fixedHeaderContainer .headerWrapper header {
   display: block !important;
 }
 
-/* Logo 样式增强 - 基于pc.css的基础样式，添加额外控制 */
+/* Logo style enhancement - based on pc.css, with extra controls */
 body .fixedHeaderContainer .headerWrapper header > a:first-child {
-  /* 链接容器不设置过多样式，让img.logo控制 */
+  /* Link container minimal styles, let img.logo control */
   z-index: 1001 !important;
 }
 
 body .fixedHeaderContainer .headerWrapper img.logo {
-  /* 确保Logo图片正确显示 */
+  /* Ensure Logo image displays correctly */
   display: block !important;
   object-fit: contain !important;
   object-position: left center !important;
 }
 
-/* 隐藏标题 */
+/* Hide title */
 body .headerTitleWithLogo {
   display: none !important;
 }
 
-/* 导航项容器 - 居中显示 */
+/* Nav items container - centered */
 body .navigationWrapper {
   margin: 0 auto !important;
   width: auto !important;
@@ -340,7 +340,7 @@ body .navigationWrapper {
 }
 
 body .navigationWrapper .slidingNav {
-  width: 520px !important; /* 增加宽度以容纳英文版 */
+  width: 520px !important; /* Increased width for English version */
   margin: 0 auto !important;
   background: transparent !important;
 }
@@ -357,9 +357,9 @@ body .navigationSlider .slidingNav ul {
   list-style: none !important;
 }
 
-/* 导航项样式 - 设计稿: Inter 500 16px */
+/* Nav item styles - design: Inter 500 16px */
 body .nav-site.nav-site-internal {
-  width: 520px !important; /* 增加宽度以容纳英文版 */
+  width: 520px !important; /* Increased width for English version */
   margin: 0 auto !important;
   display: flex !important;
   align-items: center !important;
@@ -379,11 +379,11 @@ body .nav-site.nav-site-internal > li {
 body .nav-site.nav-site-internal > li > a {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 600 !important;
-  font-size: 15px !important; /* 稍微缩小字号以适应英文 */
+  font-size: 15px !important; /* Slightly smaller for English */
   line-height: 80px !important;
   color: #000000 !important;
   text-decoration: none !important;
-  padding: 0 14px !important; /* 稍微减少padding */
+  padding: 0 14px !important; /* Slightly reduced padding */
   margin: 0 !important;
   height: 80px !important;
   display: flex !important;
@@ -395,7 +395,7 @@ body .nav-site.nav-site-internal > li > a {
   white-space: nowrap !important;
 }
 
-/* 首页/文档/API参考/案例 - 前4个导航项 */
+/* Home/Docs/API/Showcase - first 4 nav items */
 body .nav-site.nav-site-internal > li:nth-child(1),
 body .nav-site.nav-site-internal > li:nth-child(2),
 body .nav-site.nav-site-internal > li:nth-child(3),
@@ -411,7 +411,7 @@ body .nav-site.nav-site-internal li:nth-child(4) a:hover {
   background: transparent !important;
 }
 
-/* hover 下划线效果 */
+/* hover underline effect */
 body .nav-site.nav-site-internal > li:nth-child(1) a:hover::after,
 body .nav-site.nav-site-internal > li:nth-child(2) a:hover::after,
 body .nav-site.nav-site-internal > li:nth-child(3) a:hover::after,
@@ -428,14 +428,14 @@ body .nav-site.nav-site-internal > li:nth-child(4) a:hover::after {
   display: block !important;
 }
 
-/* 当前选中项 - 蓝色文字 #0066FF */
+/* Current selected item - blue text #0066FF */
 body .nav-site.nav-site-internal li.siteNavItemActive > a,
 body .nav-site.nav-site-internal li.siteNavItemActive > a:hover {
   color: var(--tgfx-primary) !important;
   background: transparent !important;
 }
 
-/* 选中滑块 - 设计稿: 30px宽, 2px高, #0066FF */
+/* Selected slider - design: 30px wide, 2px high, #0066FF */
 body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   content: '' !important;
   position: absolute !important;
@@ -450,16 +450,16 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   display: block !important;
 }
 
-/* 右侧按钮 - 旧的nth-child(5/6)规则已移除，现在全部由pc.css控制 */
-/* GitHub按钮现在是第6个子元素，论坛交流是第7个子元素 */
+/* Right buttons - old nth-child(5/6) rules removed, now controlled by pc.css */
+/* GitHub button is now 6th child, Forum is 7th child */
 
-/* 确保GitHub和论坛按钮的图标能正确显示 - 强制规则 */
+/* Ensure GitHub and Forum button icons display correctly - force rules */
 body .nav-site.nav-site-internal li:nth-child(6) a,
 body .nav-site.nav-site-internal li:nth-child(7) a {
   background-repeat: no-repeat !important;
 }
 
-/* 移除GitHub和论坛按钮可能存在的::after伪元素 */
+/* Remove possible ::after pseudo-elements from GitHub and Forum buttons */
 body .nav-site.nav-site-internal li:nth-child(6) a::after,
 body .nav-site.nav-site-internal li:nth-child(7) a::after,
 body .nav-site.nav-site-internal li:nth-child(6) a:hover::after,
@@ -468,7 +468,7 @@ body .nav-site.nav-site-internal li:nth-child(7) a:hover::after {
   content: none !important;
 }
 
-/* 隐藏语言切换相关的 span 和原有下拉 - 使用 JS 创建自定义的 */
+/* Hide language switch span and original dropdown - use JS custom dropdown */
 body .nav-site.nav-site-internal > span {
   display: none !important;
 }
@@ -481,7 +481,7 @@ body #languages-dropdown {
   display: none !important;
 }
 
-/* 清除 focus/hover 状态的背景 */
+/* Clear focus/hover state background */
 body .navigationSlider .slidingNav ul li > a:focus,
 body .navigationSlider .slidingNav ul li > a:hover,
 body .navigationSlider .slidingNav ul li.siteNavItemActive > a,
@@ -489,7 +489,7 @@ body .navigationSlider .slidingNav ul li.siteNavGroupActive > a:focus {
   background-color: transparent !important;
 }
 
-/* 移除非 active 状态的下划线 (除了 hover) */
+/* Remove underline for non-active state (except hover) */
 body .nav-site.nav-site-internal > li > a::after {
   display: none !important;
 }
@@ -497,16 +497,16 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   display: block !important;
 }
 
-/* ==================== 基础样式 ==================== */
+/* ==================== Base styles ==================== */
 .tgfx-container {
   width: 100%;
   min-width: 1440px;
   overflow: visible;
   background: var(--tgfx-white);
-  padding-top: 80px; /* 导航栏高度 */
+  padding-top: 80px; /* Navbar height */
 }
 
-/* 统一按钮样式 - 严格对照设计稿 node-id 1:6815, 1:6816 */
+/* Unified button styles - strictly following design node-id 1:6815, 1:6816 */
 .tgfx-btn {
   display: inline-flex;
   justify-content: center;
@@ -547,61 +547,61 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   box-shadow: 0 4px 12px rgba(0, 102, 255, 0.1);
 }
 
-/* ==================== Hero 区域 - 三段式背景（左图 + 中切片 + 右图） ==================== */
+/* ==================== Hero section - three-part background (left + center slice + right) ==================== */
 .tgfx-hero {
   position: relative;
   width: 100%;
-  min-width: 1440px; /* 最小宽度为中切片缩至最小时的宽度 */
+  min-width: 1440px; /* Min width when center slice is at minimum */
   height: 600px;
   display: flex;
   align-items: center;
-  overflow: hidden; /* 改回hidden，防止超出部分显示 */
+  overflow: hidden; /* Prevent overflow display */
   background: #FFFFFF;
 }
 
-/* 左侧背景图 - absolute定位，保持在左边 */
-/* 实际尺寸: 1420x1202, 缩放到 710x601 (2x设计稿) */
+/* Left background - absolute position, keep on left */
+/* Actual size: 1420x1202, scaled to 710x601 (2x design) */
 .tgfx-hero::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 710px; /* 实际显示宽度 */
-  height: 601px; /* 实际显示高度 */
+  width: 710px; /* Actual display width */
+  height: 601px; /* Actual display height */
   background: url('/img/tgfximg/hero-bg-left.png') no-repeat left top;
   background-size: 710px 601px;
   z-index: 1;
   pointer-events: none;
 }
 
-/* 右侧背景图 - absolute定位，保持在右边 */
-/* 实际尺寸: 1420x1200, 缩放到 710x600 (2x设计稿) */
+/* Right background - absolute position, keep on right */
+/* Actual size: 1420x1200, scaled to 710x600 (2x design) */
 .tgfx-hero::after {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
-  width: 710px; /* 实际显示宽度 */
-  height: 600px; /* 实际显示高度 */
+  width: 710px; /* Actual display width */
+  height: 600px; /* Actual display height */
   background: url('/img/tgfximg/hero-bg-right.png') no-repeat right top;
   background-size: 710px 600px;
   z-index: 1;
   pointer-events: none;
 }
 
-/* 中间渐变切片 - 使用九宫格拉伸（只拉伸宽度，保持高度和边缘不变形） */
-/* 实际尺寸: 40x1202, 缩放到 20x601 (2x设计稿) */
+/* Center gradient slice - nine-patch stretch (width only, keep height and edges) */
+/* Actual size: 40x1202, scaled to 20x601 (2x design) */
 .tgfx-hero-bg-center {
   position: absolute;
   top: 0;
-  left: 710px; /* 左图宽度 */
-  right: 710px; /* 右图宽度 */
-  min-width: 20px; /* 确保中间至少有这么宽 */
+  left: 710px; /* Left image width */
+  right: 710px; /* Right image width */
+  min-width: 20px; /* Ensure center is at least this wide */
   height: 601px;
   background: url('/img/tgfximg/hero-bg-center.png') center top;
-  background-size: 100% 601px; /* 宽度自适应拉伸，高度固定601px */
+  background-size: 100% 601px; /* Width adaptive, height fixed 601px */
   background-repeat: no-repeat;
-  z-index: 1; /* 改为和左右图一样的z-index */
+  z-index: 1; /* Same z-index as left/right images */
   pointer-events: none;
 }
 
@@ -618,11 +618,11 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
 }
 
 .tgfx-hero-text {
-  flex: 0 0 443px; /* 严格按照设计稿文字宽度 */
+  flex: 0 0 443px; /* Strictly follow design text width */
   padding-top: 0;
 }
 
-/* 文字 Logo */
+/* Text Logo */
 .tgfx-hero-logo-text {
   margin-bottom: 40px;
 }
@@ -646,7 +646,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   gap: 20px;
 }
 
-/* 头图大 Logo - 使用 Flex 布局以适应缩放 */
+/* Hero large Logo - Flex layout for scaling */
 .tgfx-hero-visual {
   flex: 1;
   display: flex;
@@ -667,14 +667,14 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   object-fit: contain;
 }
 
-/* ==================== Features 区域 - 严格按照设计稿 ==================== */
-/* 设计稿 node-id 1:6813 */
+/* ==================== Features section - strictly following design ==================== */
+/* Design node-id 1:6813 */
 .tgfx-features {
-  padding: 0 0 120px; /* 移除上方padding，让Feature标题紧贴Hero */
+  padding: 0 0 120px; /* Remove top padding, Feature title close to Hero */
   background: #FFFFFF;
   position: relative;
   min-width: 1440px;
-  margin-top: -2px; /* 向上移动2个像素 */
+  margin-top: -2px; /* Move up 2 pixels */
 }
 
 .tgfx-features-header {
@@ -683,8 +683,8 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   padding: 0 60px;
 }
 
-/* FEATURE 标签 - 严格按照设计稿 node-id 1:6814 */
-/* 全边框渐变（上、右、下、左），左下角70px圆角 */
+/* FEATURE tag - strictly following design node-id 1:6814 */
+/* Full border gradient (top, right, bottom, left), 70px bottom-left radius */
 .tgfx-features-tag {
   display: inline-flex;
   justify-content: center;
@@ -701,7 +701,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   border-radius: 0 0 0 70px;
 }
 
-/* 渐变边框实现 - 使用mask技术实现全边框渐变 */
+/* Gradient border - using mask technique for full border gradient */
 .tgfx-features-tag::before {
   content: "";
   position: absolute;
@@ -710,7 +710,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   right: 0;
   bottom: 0;
   border-radius: 0 0 0 70px;
-  padding: 2px; /* 边框宽度 */
+  padding: 2px; /* Border width */
   background: linear-gradient(135deg, #00DBFF 0%, #0066FF 100%);
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
@@ -734,7 +734,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   justify-content: space-between;
   margin-bottom: 160px;
   padding: 0 60px;
-  gap: 120px; /* 增加间距以还原设计稿 */
+  gap: 120px; /* Increased gap to match design */
 }
 
 .tgfx-feature-item:last-child {
@@ -745,16 +745,16 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   flex-direction: row-reverse;
 }
 
-/* Feature 内容区域 - 包含数字和文字 */
+/* Feature content area - contains number and text */
 .tgfx-feature-content {
-  flex: 0 0 600px; /* 增加文字区域宽度 */
+  flex: 0 0 600px; /* Increased text area width */
   max-width: 600px;
   display: flex;
   align-items: flex-start;
   gap: 30px;
 }
 
-/* 数字样式 - 严格按照设计稿 node-id 1:6812 */
+/* Number style - strictly following design node-id 1:6812 */
 .tgfx-feature-index {
   flex: 0 0 30px;
   font-family: 'Big Shoulders Display', sans-serif;
@@ -771,7 +771,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   flex-direction: column;
 }
 
-/* 标题样式 - 严格按照设计稿 node-id 1:6810 */
+/* Title style - strictly following design node-id 1:6810 */
 .tgfx-feature-title {
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
@@ -782,14 +782,14 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   margin-top: 0;
 }
 
-/* 描述样式 - 严格按照设计稿 node-id 1:6811 */
+/* Description style - strictly following design node-id 1:6811 */
 .tgfx-feature-desc {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #000000;
   line-height: 30px;
-  max-width: 560px; /* 文字占比更宽 */
+  max-width: 560px; /* Wider text area */
   margin-bottom: 0;
 }
 
@@ -807,7 +807,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   object-fit: contain;
 }
 
-/* 按钮样式 - 严格按照设计稿: 在文字板块右侧/右对齐 */
+/* Button style - strictly following design: right side/right aligned */
 .tgfx-btn-small {
   display: inline-flex;
   justify-content: center;
@@ -821,7 +821,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   font-weight: 400;
   text-decoration: none;
   margin-top: 24px;
-  align-self: flex-end; /* 按钮右对齐 */
+  align-self: flex-end; /* Button right aligned */
   transition: all 0.25s ease;
 }
 
@@ -830,7 +830,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   color: var(--tgfx-white);
 }
 
-/* ==================== Users 区域 ==================== */
+/* ==================== Users section ==================== */
 .tgfx-users {
   padding: 80px 0;
   background: var(--tgfx-light-bg);
@@ -936,7 +936,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   color: var(--tgfx-white);
 }
 
-/* ==================== Download 区域 ==================== */
+/* ==================== Download section ==================== */
 .tgfx-download {
   background: var(--tgfx-dark);
   padding: 80px 0 100px;
@@ -990,7 +990,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   gap: 18px;
 }
 
-/* Coming Soon 按钮样式 - 严格按照 Figma 设计稿 node-id 1:172 */
+/* Coming Soon button style - strictly following Figma design node-id 1:172 */
 .tgfx-btn-download-dark {
   display: flex;
   flex-direction: column;
@@ -1028,7 +1028,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   color: var(--tgfx-dark) !important;
 }
 
-/* ==================== Footer 区域 ==================== */
+/* ==================== Footer section ==================== */
 .tgfx-footer {
   background: var(--tgfx-dark);
   padding: 48px 0 48px;
@@ -1043,7 +1043,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   padding: 0 60px;
 }
 
-/* 页脚信息区域 - 优化排版 */
+/* Footer info area - optimized layout */
 .tgfx-footer-info {
   display: flex;
   flex-direction: column;
@@ -1059,7 +1059,7 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   font-weight: 400;
 }
 
-/* 页脚底部区域 */
+/* Footer bottom area */
 .tgfx-footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1087,18 +1087,18 @@ body .nav-site.nav-site-internal li.siteNavItemActive > a::after {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* 隐藏 Docusaurus 默认 footer 类，因为我们已经重写了 */
+/* Hide Docusaurus default footer class */
 footer.nav-footer {
   display: none;
 }
 
-/* 但我们要显示我们自定义的 tgfx-footer */
+/* But show our custom tgfx-footer */
 footer.tgfx-footer {
   display: block !important;
 }
 
-/* ==================== 案例页样式 - 严格按照 Figma 设计稿 ==================== */
-/* 设计稿布局 (1440px):
+/* ==================== Showcase page - Figma design ==================== */
+/* Design layout (1440px):
    - 页面背景: 白色 #FFFFFF
    - 标题: "基于 TGFX 构建的产品", 48px, Roboto 400
    - 卡片: 418px × 351px (图片206px + 文字145px)
@@ -1108,7 +1108,7 @@ footer.tgfx-footer {
 
 .tgfx-showcase {
   padding: 80px 0;
-  background: #FFFFFF; /* Figma设计稿背景：白色 */
+  background: #FFFFFF; /* Figma: white */
   min-width: 1440px;
 }
 
@@ -1123,10 +1123,10 @@ footer.tgfx-footer {
 
 .tgfx-showcase-grid {
   display: grid;
-  grid-template-columns: repeat(3, 418px); /* 固定宽度418px */
-  column-gap: 32px; /* 列间距32px */
-  row-gap: 64px; /* 行间距64px */
-  width: 1320px; /* 总内容宽度：62+418+32+418+32+418+60=1440，内容区1320px */
+  grid-template-columns: repeat(3, 418px); /* Fixed 418px */
+  column-gap: 32px; /* 32px gap */
+  row-gap: 64px; /* 64px gap */
+  width: 1320px; /* Content area 1320px */
   margin: 0 auto;
   padding: 0 60px;
   justify-content: center;
@@ -1135,29 +1135,29 @@ footer.tgfx-footer {
 .tgfx-showcase-item {
   display: flex;
   flex-direction: column;
-  width: 418px; /* Figma设计稿宽度 */
-  height: auto; /* 高度自适应内容 */
-  min-height: 351px; /* 最小高度 */
-  background: white; /* 整个卡片背景白色 */
-  border-radius: 12px; /* 统一圆角 */
-  border: 1px solid rgba(0, 0, 0, 0.05); /* 还原描边 */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08); /* 还原阴影 */
-  overflow: hidden; /* 裁剪子元素的圆角 */
+  width: 418px; /* Figma width */
+  height: auto; /* Auto height */
+  min-height: 351px; /* Min height */
+  background: white; /* Card background */
+  border-radius: 12px; /* Uniform radius */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Border */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08); /* Shadow */
+  overflow: hidden; /* Clip child corners */
   transition: all 0.25s ease;
   text-decoration: none;
   position: relative;
-  box-sizing: border-box; /* 确保宽度包含边框 */
+  box-sizing: border-box; /* Include border in width */
 }
 
 .tgfx-showcase-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12); /* 悬浮增强阴影 */
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12); /* Hover enhanced shadow */
 }
 
-/* 图片区域 - Figma 设计稿尺寸: 418×206px */
+/* Image area - Figma: 418x206px */
 .tgfx-showcase-image {
-  width: 100%;  /* 铺满容器 */
-  height: 206px; /* 默认尺寸 */
+  width: 100%; /* Fill container */
+  height: 206px; /* Default size */
   overflow: hidden;
   background: transparent;
   display: flex;
@@ -1166,10 +1166,10 @@ footer.tgfx-footer {
   flex-shrink: 0;
 }
 
-/* 腾讯地图特殊尺寸：Figma 中是 419×207px (图片区域) / 420x352px (容器) */
+/* Tencent Maps special size: Figma 419x207px (image) / 420x352px (container) */
 .tgfx-showcase-item:nth-child(4) {
   width: 420px;
-  margin-left: -1px; /* 对齐 Figma 中的 left: 61px (其他是 62px) */
+  margin-left: -1px; /* Align with Figma left: 61px */
 }
 
 .tgfx-showcase-item:nth-child(4) .tgfx-showcase-image {
@@ -1179,15 +1179,15 @@ footer.tgfx-footer {
 .tgfx-showcase-image img {
   width: 100%;
   height: 100%;
-  object-fit: fill; /* 强制拉伸填充，确保没有缝隙 */
+  object-fit: fill; /* Force stretch fill */
   display: block;
 }
 
-/* 文字区域 - Figma: 418×145px */
-/* 固定高度，所有卡片对齐 */
+/* Text area - Figma: 418x145px */
+/* Fixed height, all cards aligned */
 .tgfx-showcase-content {
-  width: 100%; /* 铺满容器 */
-  height: 192px; /* 增加20px：24(padding-top) + 30(标题) + 11(间距) + 116(描述5行) + 11(padding-bottom) = 192px */
+  width: 100%; /* Fill container */
+  height: 192px; /* 24(padding-top) + 30(title) + 11(gap) + 116(desc 5 lines) + 11(padding-bottom) = 192px */
   padding: 24px 25px; /* Figma: left:25px, top:24px */
   background: white;
   flex-shrink: 0;
@@ -1195,62 +1195,62 @@ footer.tgfx-footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: hidden; /* 超出内容隐藏 */
+  overflow: hidden; /* Hide overflow */
 }
 
-/* 腾讯地图特殊宽度 */
+/* Tencent Maps special width */
 .tgfx-showcase-item:nth-child(4) .tgfx-showcase-content {
   width: 419px;
 }
 
-/* 标题 - Figma: Roboto 700 20px, 高度30px */
+/* Title - Figma: Roboto 700 20px, height 30px */
 .tgfx-showcase-name {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  font-weight: 700; /* Figma设计稿：粗体 */
+  font-weight: 700; /* Figma: bold */
   line-height: 30px;
   color: var(--tgfx-black);
-  margin: 0 0 11px 0; /* Figma: 标题下方11px间距 */
+  margin: 0 0 11px 0; /* Figma: 11px gap below title */
   height: 30px;
   flex-shrink: 0;
 }
 
-/* 描述 - Figma: Roboto 400 16px, #363636 */
-/* 增加高度，支持更多文字显示 */
+/* Description - Figma: Roboto 400 16px, #363636 */
+/* Increased height for more text */
 .tgfx-showcase-desc {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px; /* 行高24px */
-  color: #363636; /* Figma设计稿颜色 */
+  line-height: 24px; /* Line height 24px */
+  color: #363636; /* Figma color */
   margin: 0;
-  max-width: 368px; /* Figma: 描述宽度368px */
-  height: 116px; /* 增加20px：支持约5行显示 */
-  overflow: hidden; /* 超出内容隐藏 */
+  max-width: 368px; /* Figma: desc width 368px */
+  height: 116px; /* Increased 20px: ~5 lines */
+  overflow: hidden; /* Hide overflow */
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* 增加到5行 */
+  -webkit-line-clamp: 5; /* Increased to 5 lines */
   -webkit-box-orient: vertical;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
-/* ==================== 响应式设计 - 锁定 1440px，禁用移动端缩放以保持设计一致性 ==================== */
-/* 仅允许横向滚动查看完整设计稿内容 */
+/* ==================== Responsive - locked 1440px, disabled mobile zoom ==================== */
+/* Only allow horizontal scroll for full design content */
 @media (max-width: 1440px) {
   body {
     width: 1440px !important;
     overflow-x: auto !important;
   }
   
-  /* Hero区域三段式背景在缩小时保持布局 */
+  /* Hero three-part background maintains layout when shrunk */
   .tgfx-hero {
     width: 1440px !important;
   }
 }
 
-/* ==================== 自定义语言切换按钮 - 作为导航栏li元素 ==================== */
-/* 语言切换<li>容器 - 强制设置位置和尺寸 */
+/* ==================== Custom language switch button - as navbar li element ==================== */
+/* Language switch <li> container - force position and size */
 body .nav-site.nav-site-internal li.tgfx-lang-li {
   position: fixed !important;
   right: 299px !important;
@@ -1264,20 +1264,20 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   padding: 0 !important;
 }
 
-/* 语言切换按钮 - 严格按照Figma设计稿 */
-/* Figma设计: 56x25px, 无边框, 纯图标+文字样式, top=28px (相对于nav容器) */
+/* Language switch button - strictly following Figma design */
+/* Figma: 56x25px, no border, icon+text style, top=28px (relative to nav) */
 .tgfx-lang-button {
   display: flex !important;
   align-items: center !important;
   gap: 4px !important;
   height: 25px !important;
-  width: auto !important; /* 改为auto让内容自适应 */
+  width: auto !important; /* Auto width for content */
   padding: 0 !important;
   cursor: pointer !important;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 500 !important;
   font-size: 16px !important;
-  line-height: 16px !important; /* 改为16px与图标对齐 */
+  line-height: 16px !important; /* 16px aligned with icon */
   color: #000000 !important;
   border: none !important;
   border-radius: 0 !important;
@@ -1292,7 +1292,7 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   background: transparent !important;
 }
 
-/* 语言切换按钮内的图标 */
+/* Language switch button icon */
 .tgfx-lang-button .lang-icon {
   width: 16px !important;
   height: 16px !important;
@@ -1302,12 +1302,12 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   margin-top: 0 !important;
 }
 
-/* 语言切换按钮内的文字 */
+/* Language switch button text */
 .tgfx-lang-button .lang-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 500 !important;
   font-size: 16px !important;
-  line-height: 16px !important; /* 改为16px与图标对齐 */
+  line-height: 16px !important; /* 16px aligned with icon */
   color: #000000 !important;
   flex-shrink: 0 !important;
   display: block !important;
@@ -1319,7 +1319,7 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   color: var(--tgfx-primary) !important;
 }
 
-/* 语言切换按钮内的箭头 */
+/* Language switch button arrow */
 .tgfx-lang-button .lang-arrow {
   width: 8px !important;
   height: 8px !important;
@@ -1331,12 +1331,12 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   visibility: visible !important;
 }
 
-/* 语言切换下拉菜单 - 使用fixed定位，对齐语言切换按钮 */
+/* Language dropdown - fixed position, aligned with button */
 .tgfx-lang-dropdown {
   display: none;
   position: fixed !important;
   top: 65px !important;
-  right: 299px !important; /* 与语言切换按钮对齐 (根据Figma) */
+  right: 299px !important; /* Aligned with language button (Figma) */
   min-width: 160px;
   background: #ffffff;
   border-radius: 8px;
@@ -1345,7 +1345,7 @@ body .nav-site.nav-site-internal li.tgfx-lang-li {
   padding: 8px 0;
 }
 
-/* 英文版下拉菜单位置调整（如果英文版按钮位置不同） */
+/* English dropdown position adjustment */
 html[lang=en] .tgfx-lang-dropdown {
   right: 299px !important;
 }
@@ -1354,7 +1354,7 @@ html[lang=en] .tgfx-lang-dropdown {
   display: block !important;
 }
 
-/* 语言选项 */
+/* Language options */
 .tgfx-lang-item {
   display: flex;
   align-items: center;
@@ -1390,7 +1390,7 @@ html[lang=en] .tgfx-lang-dropdown {
   color: #666;
 }
 
-/* 语言切换下拉菜单 - 移除旧的CSS */
+/* Language dropdown - remove old CSS */
 
 .languageDropdown.show,
 #tgfx-lang-dropdown.show {
@@ -1439,5 +1439,5 @@ html[lang=en] .tgfx-lang-dropdown {
   margin-right: 4px;
 }
 
-/* ==================== 隐藏 Docusaurus 原有的语言切换 ==================== */
+/* ==================== Hide Docusaurus original language switch ==================== */
 /* 这些由 JS 自定义实现 */
