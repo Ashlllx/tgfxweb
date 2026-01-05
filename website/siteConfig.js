@@ -11,7 +11,7 @@
 const users = [
   {
     caption: 'PAG',
-    image: '/img/tgfximg/case-pag.png',
+    image: '/img/tgfximg/showcase-pag.png',
     logo: '/img/tgfximg/logo-pag.png',
     logoStyle: { background: 'linear-gradient(180deg, #3C80E2 0%, #015BD9 100%)' },
     description: '一个将设计师在 After Effects 中制作的动画一键导出、快速部署到各主流平台的动效工作流解决方案。',
@@ -21,7 +21,7 @@ const users = [
   },
   {
     caption: 'CoDesign',
-    image: '/img/tgfximg/case-codesign.png',
+    image: '/img/tgfximg/showcase-codesign.png',
     logo: '/img/tgfximg/logo-codesign.svg',
     logoStyle: { background: 'white' },
     description: '腾讯自主研发的一站式产品设计协作平台，支持在线导入预览设计稿、自动生成标注与切图，助力设计与产品、开发团队高效对接。',
@@ -31,7 +31,7 @@ const users = [
   },
   {
     caption: 'IMA',
-    image: '/img/tgfximg/case-ima.png',
+    image: '/img/tgfximg/showcase-ima.png',
     logo: '/img/tgfximg/logo-ima.png',
     logoStyle: { background: 'white' },
     description: '一款以知识库为核心的智能工作台产品，集"搜 · 读 · 写"于一体，助力用户提升学习与办公效率。',
@@ -41,7 +41,7 @@ const users = [
   },
   {
     caption: '腾讯地图',
-    image: '/img/tgfximg/case-map.png',
+    image: '/img/tgfximg/showcase-qqmap.png',
     logo: '/img/tgfximg/logo-map.png',
     logoStyle: { background: 'white' },
     description: '一款基于位置的生活服务平台，提供精准导航、实时路况、地点搜索等功能，覆盖全国各大城市。',
@@ -51,7 +51,7 @@ const users = [
   },
   {
     caption: 'Hippy',
-    image: '/img/tgfximg/case-hippy.png',
+    image: '/img/tgfximg/showcase-hippy.png',
     logo: '/img/tgfximg/logo-hippy.png',
     logoStyle: { background: 'white' },
     description: '一个跨端开发框架，让开发者"写一套代码，运行于 iOS、Android 和 Web"等多个平台。',
@@ -61,7 +61,7 @@ const users = [
   },
   {
     caption: '咪咕视频',
-    image: '/img/tgfximg/case-migu.png',
+    image: '/img/tgfximg/showcase-migu.png',
     logo: '/img/tgfximg/logo-migu.png',
     logoStyle: { background: 'white' },
     description: '一个集正版影视剧、综艺、动漫及体育赛事直播于一体的视频平台与娱乐应用。',

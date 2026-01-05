@@ -28,8 +28,8 @@ code {
   display: none;
 }
 
-@media only screen and (max-width: 765px) {
-  // ==================== TGFX 全局移动端重置 ====================
+@media only screen and (max-width: 1024px) {
+  // ==================== TGFX 全局移动端/平板端重置 ====================
   // 重置 html/body 的 PC 端限制，解决滚动问题
   html, body {
     min-width: auto !important;
@@ -38,14 +38,27 @@ code {
     overflow-y: auto !important;
   }
   
+  // 隐藏导航栏标题文字 "TGFX - 跨平台轻量级2D图形库"
+  .headerTitleWithLogo {
+    display: none !important;
+  }
+  
   .navPusher {
     min-width: auto !important;
   }
 
+  // 平板端 (766px - 1024px) 使用较小的基准字体
   html:not(.pc) {
-    font-size: 75px;
+    font-size: 50px; // 平板端基准字体，比手机端小
     .onPageNav {
       display: none !important;
+    }
+  }
+  
+  // 手机端 (<=765px) 使用原来的基准字体
+  @media only screen and (max-width: 765px) {
+    html:not(.pc) {
+      font-size: 75px; // 手机端基准字体
     }
   }
   body article p {

@@ -1,7 +1,56 @@
 // TGFX Website JavaScript
 
+// 缓存 isMobile 检测结果，确保整个页面生命周期内返回一致的值
+var _isMobileCached = null;
+
+// 立即输出调试信息（页面加载时）
+console.log('[TGFX Debug] ========== 页面加载开始 ==========');
+console.log('[TGFX Debug] 当前URL:', location.href);
+console.log('[TGFX Debug] UserAgent:', navigator.userAgent);
+console.log('[TGFX Debug] Platform:', navigator.platform);
+console.log('[TGFX Debug] maxTouchPoints:', navigator.maxTouchPoints);
+console.log('[TGFX Debug] innerWidth:', window.innerWidth);
+console.log('[TGFX Debug] =====================================');
+
 function isMobile() {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  // 如果已经有缓存结果，直接返回
+  if (_isMobileCached !== null) {
+    return _isMobileCached;
+  }
+  
+  // 检测传统移动设备
+  var isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  // 检测新版iPadOS (iPadOS 13+默认使用桌面版UA，但可以通过触摸点数量检测)
+  var isIPadOS = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  
+  // 检测屏幕宽度（作为备用方案）
+  // 注意：iPad Pro 横屏时 innerWidth 可能是 1024 或更大
+  var isSmallScreen = window.innerWidth <= 1024;
+  
+  // 如果是触摸设备且屏幕较小，视为移动端
+  var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  
+  // 优先使用 UA 检测，因为 innerWidth 在 DevTools 模拟器中可能不稳定
+  var result = isMobileUA || isIPadOS || (isTouchDevice && isSmallScreen);
+  
+  // 缓存结果
+  _isMobileCached = result;
+  
+  // 调试日志
+  console.log('[TGFX Debug] isMobile() 首次检测结果 (已缓存):', {
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    maxTouchPoints: navigator.maxTouchPoints,
+    innerWidth: window.innerWidth,
+    isMobileUA: isMobileUA,
+    isIPadOS: isIPadOS,
+    isSmallScreen: isSmallScreen,
+    isTouchDevice: isTouchDevice,
+    finalResult: result
+  });
+  
+  return result;
 }
 
 function getCurrentLanguage() {
@@ -292,14 +341,22 @@ function i18n() {
 }
 
 function appendNav() {
+  console.log('[TGFX Debug] appendNav() 被调用');
   if (isMobile()) {
+    console.log('[TGFX Debug] appendNav() - 检测为移动端，开始创建导航');
     var header = document.getElementsByClassName('fixedHeaderContainer')[0];
-    if (!header || !header.children[0]) return;
+    console.log('[TGFX Debug] appendNav() - header元素:', header);
+    if (!header || !header.children[0]) {
+      console.log('[TGFX Debug] appendNav() - header或header.children[0]不存在，退出');
+      return;
+    }
     var node = document.createElement('div');
     node.id = 'js_nav';
     node.className = 'nav-icon';
     header.children[0].appendChild(node);
+    console.log('[TGFX Debug] appendNav() - 导航图标已创建:', node);
     document.getElementById('js_nav').onclick = function () {
+      console.log('[TGFX Debug] 导航图标被点击');
       let close = node.classList.contains('expand');
       if (close) {
         node.classList.remove('expand');
@@ -310,11 +367,29 @@ function appendNav() {
       var box = document.getElementsByClassName('slidingNav')[0];
       var headerEl = document.getElementsByClassName('fixedHeaderContainer')[0];
       var nav = document.getElementsByClassName('nav-site')[0];
+      console.log('[TGFX Debug] 导航元素:', { menu, box, headerEl, nav, close });
       if (headerEl) headerEl.style.backdropFilter = close ? 'saturate(180%) blur(20px)' : 'none';
       if (nav) nav.style.backdropFilter = close ? 'none' : 'saturate(180%) blur(20px)';
-      if (box) box.style.height = close ? '0' : window.innerHeight + 'px';
+      if (box) {
+        box.style.height = close ? '0' : window.innerHeight + 'px';
+        box.style.width = close ? '' : '100vw';
+      }
       if (menu) menu.style.display = close ? 'none' : 'block';
     };
+    
+    // 监听导航链接点击
+    setTimeout(function() {
+      var navLinks = document.querySelectorAll('.nav-site-internal a');
+      console.log('[TGFX Debug] 找到导航链接数量:', navLinks.length);
+      navLinks.forEach(function(link, index) {
+        console.log('[TGFX Debug] 导航链接 ' + index + ':', link.href, link.innerText);
+        link.addEventListener('click', function(e) {
+          console.log('[TGFX Debug] 导航链接被点击:', this.href, this.innerText);
+        });
+      });
+    }, 500);
+  } else {
+    console.log('[TGFX Debug] appendNav() - 检测为PC端，跳过创建导航');
   }
 }
 
@@ -356,13 +431,23 @@ function docReady(fn) {
 }
 
 docReady(function() {
+  console.log('[TGFX Debug] docReady 开始执行');
+  console.log('[TGFX Debug] document.readyState:', document.readyState);
+  
   setDynamicFontSize();
+  console.log('[TGFX Debug] setDynamicFontSize() 完成');
+  
   cssHandle();
+  console.log('[TGFX Debug] cssHandle() 完成');
+  
   appendNav();
+  console.log('[TGFX Debug] appendNav() 完成');
+  
   hideOriginalLanguageElements();
   i18n();
   createLanguageSwitcher();
   appendMenuAndMeta();
+  console.log('[TGFX Debug] 所有初始化函数执行完成');
 
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
