@@ -29,6 +29,19 @@ code {
 }
 
 @media only screen and (max-width: 765px) {
+  // ==================== TGFX 全局移动端重置 ====================
+  // 重置 html/body 的 PC 端限制，解决滚动问题
+  html, body {
+    min-width: auto !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+  
+  .navPusher {
+    min-width: auto !important;
+  }
+
   html:not(.pc) {
     font-size: 75px;
     .onPageNav {
@@ -1712,24 +1725,28 @@ code {
         }
       }
     }
-  }
 
     // ==================== TGFX 首页组件移动端样式 ====================
     
     // 隐藏 PC 端专属样式
     .tgfx-container {
       min-width: auto !important;
+      width: 100% !important;
       padding-top: rem(48);
+      overflow-x: hidden !important;
     }
 
-    // Hero 区域 - 移动端适配
+    // Hero 区域 - 移动端适配，紧贴导航栏
     .tgfx-hero {
       min-width: auto !important;
       width: 100% !important;
       height: auto !important;
       min-height: rem(500);
-      padding: rem(40) rem(24) rem(60);
+      padding: rem(20) rem(24) rem(60); // 减少顶部padding，紧贴导航栏
+      margin-top: rem(-48) !important; // 负边距，消除与导航栏的空隙
+      padding-top: rem(68) !important; // 增加内部顶部padding，为导航栏留出空间
       flex-direction: column;
+      overflow: visible !important;
       
       // 隐藏三段式背景
       &::before,
@@ -1749,61 +1766,124 @@ code {
     .tgfx-hero-content {
       width: 100% !important;
       padding: 0 !important;
-      flex-direction: column-reverse;
-      gap: rem(40);
+      flex-direction: column !important; // Logo 在上，文字在下
+      display: flex !important;
+      gap: rem(32); // 减少间距
+      position: relative !important; // 作为logo绝对定位的参考
     }
     
     .tgfx-hero-text {
       flex: none !important;
       width: 100%;
-      text-align: center;
+      text-align: left !important; // 改为左对齐
+      order: 2; // 文字在下
+      position: relative !important; // 确保文字可以独立定位
+      z-index: 5 !important; // 文字在logo下层
+    }
+    
+    .tgfx-hero-visual {
+      flex: none !important;
+      justify-content: flex-start !important; // 改为左对齐
+      display: flex !important;
+      order: 1; // Logo 在上
+      position: absolute !important; // 绝对定位，脱离文档流
+      top: 0 !important;
+      left: 0 !important;
+      //z-index: 10 !important; // 确保logo在上层
+      pointer-events: none !important; // 不阻挡下方元素的点击
+      
+      .tgfx-hero-logo {
+        max-width: rem(350); // 放大后的尺寸
+        margin: 0; // 取消居中，改为左对齐
+        margin-top: rem(-60) !important; // 向下移动5px
+        
+        img {
+          width: 100%;
+          height: auto;
+          content: url('/img/tgfximg/hero-logo-mobile.png') !important; // 使用移动端专用logo
+          pointer-events: auto !important; // logo本身可以点击
+        }
+      }
     }
     
     .tgfx-hero-logo-text {
       margin-bottom: rem(24);
+      margin-top: rem(150) !important; // 为logo留出空间，可以调整这个值来控制TGFX文字位置
+      text-align: left !important; // TGFX文字左对齐
+      position: relative !important;
+      z-index: 15 !important; // TGFX文字在logo上层，可以重叠
       
       img {
         height: rem(48) !important;
+        width: auto !important;
+        font-weight: 600 !important;
       }
     }
     
+    // 首图文字排版优化 - 参考 PAG 的粗细变化
     .tgfx-hero-subtitle {
       font-size: rem(14) !important;
       line-height: rem(24) !important;
       margin-bottom: rem(32);
       text-align: left;
+      font-weight: 300 !important; // 轻字重
+      
+      // 第一句话加粗
+      &::first-line {
+        font-weight: 400 !important;
+      }
+      
+      // 添加段落间距
+      br + * {
+        margin-top: rem(12);
+      }
     }
     
+    // 按钮样式 - 参考 PAG 和 TGFX PC 端
     .tgfx-hero-buttons {
+      display: flex !important;
       justify-content: center;
       gap: rem(16);
       
       .tgfx-btn {
-        width: rem(130);
-        height: rem(44);
-        font-size: rem(14);
-        border-radius: rem(22);
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: rem(130) !important;
+        height: rem(44) !important;
+        font-size: rem(14) !important;
+        font-weight: 600 !important;
+        border-radius: rem(22) !important;
+        text-decoration: none !important;
+        box-sizing: border-box !important;
       }
-    }
-    
-    .tgfx-hero-visual {
-      flex: none !important;
-      justify-content: center !important;
       
-      .tgfx-hero-logo {
-        max-width: rem(200);
-        
-        img {
-          width: 100%;
-        }
+      .tgfx-btn-primary {
+        background: #0066FF !important;
+        color: #fff !important;
+        border: none !important;
+      }
+      
+      .tgfx-btn-outline {
+        background: transparent !important;
+        color: #0066FF !important;
+        border: 2px solid #0066FF !important;
       }
     }
 
-    // Features 区域 - 移动端适配
+    // Features 区域 - 移动端适配，紧贴首图，图层在首图下方
     .tgfx-features {
       min-width: auto !important;
-      padding: rem(40) rem(24) rem(60);
-      margin-top: 0 !important;
+      padding: rem(20) rem(24) rem(60); // 减少顶部间距，紧贴首图
+      margin-top: rem(-23) !important; // 从-20px改为-22px，向上移动2px
+      position: relative !important;
+      z-index: 1 !important; // 图层在首图下方
+    }
+    
+    // 首图区域图层在feature上方
+    .tgfx-hero {
+      position: relative !important;
+      z-index: 2 !important; // 首图图层在feature上方
     }
     
     .tgfx-features-header {
@@ -1812,11 +1892,43 @@ code {
       padding: 0 !important;
     }
     
+    // FEATURE 标签 - 保持蓝色带渐变边框样式（与 PC 端一致）
     .tgfx-features-tag {
-      width: rem(160);
-      height: rem(50);
-      font-size: rem(24);
-      border-radius: 0 0 0 rem(45);
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: rem(140) !important;
+      height: rem(50) !important;
+      position: relative !important;
+      color: #0066FF !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: rem(20) !important;
+      font-weight: 400 !important;
+      text-transform: uppercase !important;
+      background: #FFFFFF !important;
+      border-radius: 0 0 0 rem(40) !important;
+      
+      // 渐变边框
+      &::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        border-radius: 0 0 0 rem(40) !important;
+        padding: 2px !important;
+        background: linear-gradient(135deg, #00DBFF 0%, #0066FF 100%) !important;
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0) !important;
+        mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0) !important;
+        -webkit-mask-composite: xor !important;
+        mask-composite: exclude !important;
+        pointer-events: none !important;
+      }
     }
     
     .tgfx-features-list {
@@ -1826,7 +1938,7 @@ code {
     .tgfx-feature-item {
       flex-direction: column-reverse !important;
       padding: 0 !important;
-      margin-bottom: rem(60) !important;
+      margin-bottom: rem(65) !important; // 从60px增加到65px，增加5px间距
       gap: rem(24) !important;
     }
     
@@ -1838,6 +1950,7 @@ code {
       flex: none !important;
       max-width: 100% !important;
       gap: rem(16);
+      display: flex !important;
     }
     
     .tgfx-feature-index {
@@ -1845,6 +1958,7 @@ code {
       font-size: rem(80) !important;
       line-height: 1;
       margin-top: 0;
+      color: #0066FF !important;
     }
     
     .tgfx-feature-text {
@@ -1854,17 +1968,26 @@ code {
     .tgfx-feature-title {
       font-size: rem(24) !important;
       margin-bottom: rem(16) !important;
+      margin-top: rem(-2) !important; // 向上移动2px
+      font-weight: 600 !important; // 标题加粗
     }
     
     .tgfx-feature-desc {
       font-size: rem(14) !important;
       line-height: rem(24) !important;
       max-width: 100% !important;
+      font-weight: 300 !important; // 描述文字轻字重
+      
+      // 增加段落间距
+      p + p {
+        margin-top: rem(12);
+      }
     }
     
     .tgfx-feature-image {
       flex: none !important;
       max-width: 100% !important;
+      margin-top: rem(5) !important; // 向下移动5px，保证美观
       
       img {
         width: 100%;
@@ -1874,10 +1997,68 @@ code {
       }
     }
     
+    // 第6个feature项目的图片额外向下移动5px
+    .tgfx-feature-item:nth-child(6) .tgfx-feature-image {
+      margin-top: rem(10) !important; // 总共向下移动10px (5+5)
+    }
+    
+    // Feature 按钮样式 - 确保在移动端正常显示，参考PC端和PAG样式
+    .tgfx-feature-buttons {
+      display: flex !important;
+      gap: rem(12) !important;
+      margin-top: rem(24) !important;
+      flex-wrap: wrap !important;
+    }
+    
     .tgfx-btn-small {
-      font-size: rem(14);
-      padding: rem(10) rem(20);
-      margin-top: rem(16);
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      font-size: rem(14) !important; // 参考PAG样式
+      padding: rem(10) rem(20) !important; // 参考PAG样式
+      margin-top: rem(16) !important;
+      height: rem(40) !important; // 参考PAG样式
+      border-radius: rem(20) !important; // 参考PAG样式
+      text-decoration: none !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+      box-sizing: border-box !important;
+      min-width: rem(100) !important;
+      
+      // 默认样式 - 蓝色边框，参考TGFX PC端
+      background: transparent !important;
+      color: #0066FF !important;
+      border: 2px solid #0066FF !important;
+      
+      &:hover {
+        background: #0066FF !important;
+        color: #fff !important;
+        transform: translateY(-1px) !important;
+      }
+      
+      // 主要按钮样式
+      &.tgfx-btn-primary {
+        background: #0066FF !important;
+        color: #fff !important;
+        border: 2px solid #0066FF !important;
+        
+        &:hover {
+          background: #0052CC !important;
+          transform: translateY(-1px) !important;
+        }
+      }
+      
+      // 轮廓按钮样式
+      &.tgfx-btn-outline {
+        background: transparent !important;
+        color: #0066FF !important;
+        border: 2px solid #0066FF !important;
+        
+        &:hover {
+          background: rgba(0, 102, 255, 0.05) !important;
+          transform: translateY(-1px) !important;
+        }
+      }
     }
 
     // Users 区域 - 移动端适配
@@ -1893,12 +2074,23 @@ code {
     }
     
     .tgfx-users-tag {
-      font-size: rem(14);
-      padding: rem(8) rem(20);
+      display: inline-block !important;
+      padding: rem(8) rem(20) !important;
+      border: 2px solid #0066FF !important; // 蓝色边框
+      color: #0066FF !important; // 蓝色文字
+      font-family: 'Roboto', sans-serif !important;
+      font-size: rem(14) !important;
+      font-weight: 600 !important;
+      border-radius: rem(20) rem(20) rem(20) 0 !important; // 参考PC端的圆角样式
+      background: transparent !important;
     }
     
     .tgfx-users-title {
+      font-family: 'Roboto', sans-serif !important;
       font-size: rem(24) !important;
+      font-weight: 500 !important;
+      text-align: center !important;
+      color: #000000 !important; // 黑色文字，参考PC端
       margin: rem(32) 0 rem(32) !important;
       width: 100% !important;
     }
@@ -1906,25 +2098,46 @@ code {
     .tgfx-users-grid {
       width: 100% !important;
       padding: 0 !important;
+      display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
-      gap: rem(16) !important;
+      gap: rem(20) rem(12) !important; // 行间距20px，列间距12px
+      justify-items: center !important;
     }
     
     .tgfx-user-logo {
-      width: rem(70) !important;
-      height: rem(70) !important;
-      border-radius: rem(14) !important;
-      margin-bottom: rem(10) !important;
+      width: rem(60) !important; // 参考PAG样式，60x60px
+      height: rem(60) !important;
+      border-radius: rem(13.5) !important; // 圆角比例保持一致
+      margin-bottom: rem(11) !important;
+      box-shadow: 0 0 rem(6) rgba(0, 0, 0, 0.16) !important; // 添加阴影效果
     }
     
     .tgfx-user-name {
-      font-size: rem(12) !important;
+      font-size: rem(14) !important; // 参考PAG样式
+      line-height: rem(24) !important;
+      margin-top: rem(11) !important;
+      margin-bottom: rem(23) !important;
     }
     
     .tgfx-btn-more {
-      font-size: rem(12);
-      padding: rem(10) rem(20);
-      margin-top: rem(32);
+      display: flex !important;
+      margin: rem(32) auto 0 !important;
+      padding: rem(10) rem(20) !important;
+      border: 2px solid #0066FF !important; // 蓝色边框，参考PC端
+      color: #0066FF !important; // 蓝色文字，参考PC端
+      border-radius: rem(20) !important; // 圆角按钮
+      font-family: 'Roboto', sans-serif !important;
+      font-size: rem(12) !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      width: fit-content !important;
+      transition: all 0.25s ease !important;
+      background: transparent !important; // 透明背景
+      
+      &:hover {
+        background: #0066FF !important; // hover时蓝色背景
+        color: #ffffff !important; // hover时白色文字
+      }
     }
 
     // Download 区域 - 移动端适配
@@ -1932,17 +2145,19 @@ code {
       min-width: auto !important;
       min-height: auto !important;
       padding: rem(60) rem(24) rem(40);
+      background: #1a1a1a !important; // 深色背景，与 PC 端一致
     }
     
     .tgfx-download-content {
       width: 100% !important;
       padding: 0 !important;
+      text-align: center !important;
     }
     
     .tgfx-download-box {
-      width: rem(200) !important;
-      height: rem(180) !important;
-      margin-bottom: rem(32) !important;
+      width: rem(180) !important;
+      height: rem(160) !important;
+      margin: 0 auto rem(32) !important;
       
       img {
         max-width: 100%;
@@ -1952,7 +2167,9 @@ code {
     
     .tgfx-download-title {
       font-size: rem(24) !important;
+      font-weight: 600 !important;
       margin-bottom: rem(24) !important;
+      color: #fff !important; // 白色文字
     }
     
     .tgfx-download-buttons {
@@ -1973,43 +2190,71 @@ code {
     .tgfx-showcase {
       min-width: auto !important;
       padding: rem(40) rem(24) rem(60);
+      background: #FFFFFF !important; // 保持白色背景
     }
     
     .tgfx-showcase-title {
-      font-size: rem(24) !important;
+      font-size: rem(28) !important; // 稍大一些
+      font-weight: 600 !important; // 标题加粗
       margin-bottom: rem(32) !important;
+      text-align: center !important;
+      color: #333 !important;
     }
     
+    // 网格布局 - 案例页单列显示
     .tgfx-showcase-grid {
       width: 100% !important;
       padding: 0 !important;
-      grid-template-columns: 1fr !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important; // 单列
       gap: rem(24) !important;
     }
     
     .tgfx-showcase-item {
       width: 100% !important;
       min-height: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      border-radius: rem(8) !important;
+      background: #fff !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+      transition: transform 0.2s ease !important;
+      
+      &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      }
     }
     
-    // 腾讯地图特殊宽度重置
+    // 腾讯地图特殊宽度重置 - 移动端统一处理
     .tgfx-showcase-item:nth-child(4) {
       width: 100% !important;
       margin-left: 0 !important;
     }
     
     .tgfx-showcase-image {
+      width: 100% !important;
       height: rem(180) !important;
+      overflow: hidden !important;
+      
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
     }
     
     .tgfx-showcase-item:nth-child(4) .tgfx-showcase-image {
+      width: 100% !important;
       height: rem(180) !important;
     }
     
     .tgfx-showcase-content {
+      width: 100% !important;
       height: auto !important;
-      min-height: rem(120);
-      padding: rem(16) rem(20) !important;
+      min-height: rem(140) !important; // 增加高度以容纳描述文字
+      padding: rem(16) rem(20) rem(20) rem(20) !important; // 增加底部padding
+      background: #fff !important;
     }
     
     .tgfx-showcase-item:nth-child(4) .tgfx-showcase-content {
@@ -2019,23 +2264,64 @@ code {
     .tgfx-showcase-name {
       font-size: rem(18) !important;
       line-height: rem(26) !important;
-      height: auto !important;
+      font-weight: 600 !important;
+      color: #333 !important;
       margin-bottom: rem(8) !important;
     }
     
     .tgfx-showcase-desc {
       font-size: rem(14) !important;
-      line-height: rem(22) !important;
+      line-height: rem(20) !important;
+      font-weight: 400 !important;
+      color: #666 !important;
+      margin: rem(-10) 0 0 0 !important; // 向上移动10px
       height: auto !important;
-      max-width: 100% !important;
-      -webkit-line-clamp: 4 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 3 !important; // 显示3行文字
+      -webkit-box-orient: vertical !important;
+      overflow-wrap: break-word !important;
+      word-wrap: break-word !important;
     }
 
-    // ==================== TGFX Footer 移动端适配 ====================
+    // Coming Soon 按钮移动端样式 - 对齐PC端，添加边框
+    .tgfx-btn-download-dark {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: rem(200) !important; // 移动端适配宽度
+      height: rem(48) !important; // 移动端适配高度
+      padding: rem(12) rem(24) !important;
+      gap: rem(8) !important;
+      background: transparent !important;
+      color: #FFFFFF !important;
+      border: 2px solid #FFFFFF !important; // 确保边框显示
+      border-radius: rem(24) !important;
+      font-family: 'Roboto', sans-serif !important;
+      font-style: normal !important;
+      font-size: rem(14) !important; // 移动端字体大小
+      font-weight: 400 !important;
+      line-height: rem(20) !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      box-sizing: border-box !important;
+      margin: rem(24) auto !important; // 居中显示
+      
+      &:hover {
+        background: #FFFFFF !important;
+        color: #1a1a1a !important; // 深色文字，确保对比度
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+      }
+    }
     
     .tgfx-footer {
       min-width: auto !important;
       padding: rem(32) rem(24) !important;
+      background: #1a1a1a !important; // 深色背景，参考 TGFX PC 端
+      color: rgba(255, 255, 255, 0.6) !important;
     }
     
     .tgfx-footer-content {
@@ -2049,6 +2335,7 @@ code {
       span {
         font-size: rem(12) !important;
         line-height: rem(20) !important;
+        color: rgba(255, 255, 255, 0.5) !important; // 白色半透明
       }
     }
     
@@ -2057,10 +2344,12 @@ code {
       align-items: flex-start;
       gap: rem(16);
       padding-top: rem(16);
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important; // 白色半透明边框
     }
     
     .tgfx-footer-copyright {
       font-size: rem(12) !important;
+      color: rgba(255, 255, 255, 0.5) !important; // 白色半透明
     }
     
     .tgfx-footer-links a {
@@ -2310,4 +2599,5 @@ code {
 
 .languageDropdown.show {
   display: block;
+}
 }

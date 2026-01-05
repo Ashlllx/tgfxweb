@@ -20,6 +20,9 @@ function cssHandle() {
   if (isMobile()) {
     var pcCss = document.getElementById('pc-css');
     if (pcCss) pcCss.disabled = true;
+    // 移动端也需要禁用 tgfx.css，因为它包含 PC 端的固定宽度样式
+    var tgfxCss = document.getElementById('tgfx-css');
+    if (tgfxCss) tgfxCss.disabled = true;
   } else {
     var mobileCss = document.getElementById('mobile-css');
     if (mobileCss) mobileCss.disabled = true;
@@ -45,8 +48,95 @@ const navLinkTranslations = {
   'Github': 'Github',
 };
 
+// 获取语言下拉菜单 HTML
+function getLanguageDropdownHtml() {
+  var currentLanguage = getCurrentLanguage();
+  return '<div class="dropdownItem ' + (currentLanguage === 'en' ? 'active' : '') + '" data-lang="en">' +
+    '<div class="title">EN</div>' +
+    '<div class="divider"></div>' +
+    '<div class="content">English</div>' +
+    '<div class="icon"></div>' +
+  '</div>' +
+  '<div class="dropdownItem ' + (currentLanguage === 'zh-CN' ? 'active' : '') + '" data-lang="zh-CN">' +
+    '<div class="title">CN</div>' +
+    '<div class="divider"></div>' +
+    '<div class="content">简体中文</div>' +
+    '<div class="icon"></div>' +
+  '</div>';
+}
+
+// 创建移动端语言切换器
+function createMobileLanguageSwitcher() {
+  var header = document.getElementsByClassName('fixedHeaderContainer')[0];
+  if (!header || !header.children[0]) return;
+  
+  var language = getCurrentLanguage();
+  
+  var languageNode = document.createElement('div');
+  languageNode.id = 'js_language';
+  languageNode.className = 'language-icon';
+  languageNode.innerHTML = '<div class="icon-img"></div><div class="label">' + (language === 'en' ? 'EN' : 'CN') + '</div>';
+  
+  var languageDropdown = document.createElement('div');
+  languageDropdown.id = 'languageDropdown';
+  languageDropdown.classList.add('languageDropdown');
+  languageDropdown.innerHTML = getLanguageDropdownHtml();
+  languageNode.appendChild(languageDropdown);
+  header.children[0].appendChild(languageNode);
+  
+  document.getElementById('js_language').onclick = function() {
+    var dropdown = document.querySelector('.languageDropdown');
+    if (dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    } else {
+      dropdown.classList.add('show');
+    }
+  };
+  
+  // 绑定语言切换点击事件
+  var dropdownItems = languageDropdown.querySelectorAll('.dropdownItem');
+  dropdownItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var currentLanguage = getCurrentLanguage();
+      var nextLanguage = this.getAttribute('data-lang');
+      if (currentLanguage === nextLanguage) return;
+      
+      var newPath = location.pathname;
+      if (nextLanguage === 'zh-CN') {
+        if (newPath.startsWith('/en/')) {
+          newPath = newPath.replace(/^\/en\//, '/');
+        } else if (newPath.startsWith('/docs/en/')) {
+          newPath = newPath.replace(/^\/docs\/en\//, '/docs/zh-CN/');
+        }
+        if (newPath === '' || newPath === '/en') newPath = '/';
+      } else {
+        if (newPath.startsWith('/docs/zh-CN/')) {
+          newPath = newPath.replace('/docs/zh-CN/', '/docs/en/');
+        } else if (newPath.startsWith('/docs/') && !newPath.includes('/en/')) {
+          newPath = newPath.replace('/docs/', '/docs/en/');
+        } else if (!newPath.startsWith('/en/') && !newPath.startsWith('/docs/')) {
+          newPath = '/en' + (newPath === '/' ? '/' : newPath);
+        }
+      }
+      
+      location.href = newPath;
+    });
+  });
+  
+  // 点击页面其他地方关闭下拉菜单
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.languageDropdown');
+    var languageIcon = document.getElementById('js_language');
+    if (dropdown && dropdown.classList.contains('show') && languageIcon && !languageIcon.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+}
+
 function createLanguageSwitcher() {
+  // 移动端使用专门的移动端语言切换器
   if (isMobile()) {
+    createMobileLanguageSwitcher();
     return;
   }
   
@@ -131,11 +221,13 @@ function createLanguageSwitcher() {
         if (newPath.startsWith('/en/')) {
           newPath = newPath.replace(/^\/en\//, '/');
         } else if (newPath.startsWith('/docs/en/')) {
-          newPath = newPath.replace(/^\/docs\/en\//, '/docs/');
+          newPath = newPath.replace(/^\/docs\/en\//, '/docs/zh-CN/');
         }
         if (newPath === '' || newPath === '/en') newPath = '/';
       } else {
-        if (newPath.startsWith('/docs/') && !newPath.includes('/en/')) {
+        if (newPath.startsWith('/docs/zh-CN/')) {
+          newPath = newPath.replace('/docs/zh-CN/', '/docs/en/');
+        } else if (newPath.startsWith('/docs/') && !newPath.includes('/en/')) {
           newPath = newPath.replace('/docs/', '/docs/en/');
         } else if (!newPath.startsWith('/en/') && !newPath.startsWith('/docs/')) {
           newPath = '/en' + (newPath === '/' ? '/' : newPath);

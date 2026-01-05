@@ -20,7 +20,7 @@ title: TGFX 简介
   
   <div class="designWrapper">
     <div class="wrapperTitle">
-      <img src="/img/docs/home/develop.png" />
+      <img src="/img/tgfximg/develop.png" />
       <div class="wrapperTitleText">文档中心</div>
     </div>
     <div class="designContainer">
@@ -36,7 +36,7 @@ title: TGFX 简介
   </div>
   <div class="designWrapper developerWrapper">
     <div class="wrapperTitle">
-      <img src="/img/docs/home/design.png" />
+      <img src="/img/tgfximg/design.png" />
       <div class="wrapperTitleText">临时资源</div>
     </div>
     <div class="developerContainer designContainer">

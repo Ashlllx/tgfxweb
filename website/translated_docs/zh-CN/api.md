@@ -20,7 +20,7 @@ title: API 参考
   
   <div class="designWrapper">
     <div class="wrapperTitle">
-      <img src="/img/docs/home/develop.png" />
+      <img src="/img/tgfximg/develop.png" />
       <div class="wrapperTitleText">计划内容</div>
     </div>
     <div class="designContainer">
@@ -51,7 +51,7 @@ title: API 参考
   </div>
   <div class="designWrapper developerWrapper">
     <div class="wrapperTitle">
-      <img src="/img/docs/home/design.png" />
+      <img src="/img/tgfximg/design.png" />
       <div class="wrapperTitleText">临时资源</div>
     </div>
     <div class="developerContainer designContainer">
