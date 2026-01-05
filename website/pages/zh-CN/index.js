@@ -1,9 +1,9 @@
 const React = require('react');
 const siteConfig = require(`${process.cwd()}/siteConfig.js`);
 
-// TGFX 中文首页组件 - 基于 Figma 设计稿
+// TGFX Chinese Homepage Components - based on Figma design
 
-// Hero 区域
+// Hero Section
 class Hero extends React.Component {
   render() {
     return (
@@ -37,7 +37,7 @@ class Hero extends React.Component {
   }
 }
 
-// Feature 区域
+// Feature Section
 class Features extends React.Component {
   render() {
     const features = [
@@ -122,7 +122,7 @@ class Features extends React.Component {
   }
 }
 
-// Users 区域 - 首页使用 Logo 图标
+// Users Section - Homepage shows logos
 class Users extends React.Component {
   render() {
     const users = siteConfig.users || [];
@@ -148,7 +148,7 @@ class Users extends React.Component {
   }
 }
 
-// Download 区域 - 深色背景
+// Download Section - dark background
 class Download extends React.Component {
   render() {
     return (
@@ -169,7 +169,7 @@ class Download extends React.Component {
   }
 }
 
-// 主页面
+// Main Page
 class Index extends React.Component {
   render() {
     return (

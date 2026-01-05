@@ -78,13 +78,13 @@ const featureCompare = {
   group: 'Technical abilities',
   desc: 'For better performance, only supports transparency separately applied to individual layers..',
   support: {
-    // 社区版是否支持
+    // Open source version support
     openSource: false,
-    // 企业订阅版是否支持
+    // Enterprise subscription support
     enterprise: true,
-    // 企业高级版是否支持
+    // Enterprise plus support
     enterprisePlus: true,
-    // 企业定制版是否支持
+    // Enterprise custom support
     enterpriseCustom: true,
   },
 };

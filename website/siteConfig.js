@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// TGFX 网站配置
+// TGFX Website Configuration
 
 // Products using TGFX - case page uses full screenshots, homepage uses logos
 const users = [
@@ -146,7 +146,7 @@ const siteConfig = {
   footerIcon: 'img/tgfximg/tgfx-icon.png',
   favicon: 'img/tgfximg/logo.png',
 
-  /* Colors for website - 基于 Figma 设计稿 */
+  /* Colors for website - based on Figma design */
   colors: {
     primaryColor: '#0066FF',
     secondaryColor: '#00173A',

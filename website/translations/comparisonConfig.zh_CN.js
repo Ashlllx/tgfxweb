@@ -4,13 +4,13 @@ const comparisonFeature = {
   group: '技术能力',
   desc: '不支持整体透明度(可能产生叠影)，只支持分散到各个图层的透明度',
   support: {
-    // 社区版是否支持
+    // Open source version support
     openSource: false,
-    // 企业订阅版是否支持
+    // Enterprise subscription support
     enterprise: true,
-    // 企业高级版是否支持
+    // Enterprise plus support
     enterprisePlus: true,
-    // 企业定制版是否支持
+    // Enterprise custom support
     enterpriseCustom: true,
   },
 };

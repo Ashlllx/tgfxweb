@@ -255,10 +255,10 @@ function isChineseCharacter(char) {
 }
 
 function getStringWidth(text) {
-  // 假设每个字符都有相同的宽度
-  const cnCharWidth = 11; // 假设每个字符宽度为 10 像素
-  const enCharWidth = 10; // 假设每个字符宽度为 10 像素
-  // 计算字符串的总宽度
+  // Assume each character has a fixed width
+  const cnCharWidth = 11; // Chinese character width
+  const enCharWidth = 10; // English character width
+  // Calculate total string width
   let width = 0;
   for (let i = 0; i < text.length; i++) {
     if (isChineseCharacter(text[i])) {
@@ -267,11 +267,11 @@ function getStringWidth(text) {
       width += enCharWidth;
     }
   }
-  // 返回字符串的总宽度
+  // Return total string width
   return width;
 }
 
-// 参数总的字符串长度, 每一行最长430, 求最大行数
+// Calculate max line count based on string width (max 430 per line)
 function getLineCount(str) {
   const strWidth = getStringWidth(str);
   const lineCount = Math.ceil(strWidth / 430);

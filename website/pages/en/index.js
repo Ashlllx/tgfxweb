@@ -3,7 +3,7 @@ const siteConfig = require(`${process.cwd()}/siteConfig.js`);
 
 // TGFX English Homepage Components
 
-// Hero Section - 基于 Figma 设计稿
+// Hero Section - based on Figma design
 class Hero extends React.Component {
   render() {
     return (
@@ -37,7 +37,7 @@ class Hero extends React.Component {
   }
 }
 
-// Feature Section - 基于 Figma 设计稿
+// Feature Section - based on Figma design
 class Features extends React.Component {
   render() {
     const features = [
@@ -148,7 +148,7 @@ class Users extends React.Component {
   }
 }
 
-// Download Section - 基于 Figma 设计稿 (深色背景)
+// Download Section - dark background
 class Download extends React.Component {
   render() {
     return (

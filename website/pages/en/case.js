@@ -1,9 +1,9 @@
 const React = require('react');
 const siteConfig = require(`${process.cwd()}/siteConfig.js`);
 
-// TGFX Case Page Components (English) - 基于 Figma 设计稿
+// TGFX Case Page Components (English) - based on Figma design
 
-// Case Card - 3列布局
+// Case Card - 3 column layout
 class CaseCard extends React.Component {
   render() {
     const { image, title, description, link } = this.props;
@@ -45,7 +45,7 @@ class CaseList extends React.Component {
   }
 }
 
-// Download Section - 深色背景
+// Download Section - dark background
 class Download extends React.Component {
   render() {
     return (
@@ -66,7 +66,7 @@ class Download extends React.Component {
   }
 }
 
-// Case Page Main Component - 不需要自定义Footer，Docusaurus会自动添加
+// Case Page Main Component - Docusaurus adds footer automatically
 class Case extends React.Component {
   render() {
     return (
